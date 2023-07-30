@@ -51,7 +51,7 @@ where
             self.extend();
         }
 
-        let mut index = key.hash() & self.kv_pairs.len(); // natural positino
+        let mut index = key.hash() % self.kv_pairs.len(); // natural positino
 
         while (self.kv_pairs[index].status == CellStatus::Taken) &
               (self.kv_pairs[index].key != *key)
